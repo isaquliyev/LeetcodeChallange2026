@@ -16,4 +16,18 @@ class Array1 {
         return arr
     }
 
+    fun findMaxConsecutiveOnes(nums: IntArray): Int {
+        var temp : Int = 0
+        var counter : Int = 0
+        for (i in nums) {
+            if (i == 1) temp++
+            else {
+                counter = if (counter > temp) counter else temp
+                temp = 0
+            }
+        }
+
+        return if (counter > temp) counter else temp
+    }
+
 }
