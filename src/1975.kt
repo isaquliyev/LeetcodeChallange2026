@@ -1,6 +1,6 @@
 import kotlin.math.abs
 
-class Solution {
+class Solution1975 {
     fun maxMatrixSum(matrix: Array<IntArray>): Long {
         var minMatrix : Int = matrix[0][0]
         var sum : Long = 0

@@ -1,4 +1,4 @@
-class Solution {
+class Solution961 {
 
     fun repeatedNTimes(nums: IntArray): Int {
 

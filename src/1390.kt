@@ -1,4 +1,4 @@
-class Solution {
+class Solution1390 {
     fun sumFourDivisors(nums: IntArray): Int {
         var finalSum : Int = 0
         for (i in nums) {
@@ -6,7 +6,7 @@ class Solution {
             var tempSum = 0
             for (j in 2 .. kotlin.math.sqrt(i.toDouble()).toInt()) {
                 if (i % j == 0) {
-                    if (i / j == j) count += 1 else count += 2
+                    count += if (i / j == j) 1 else 2
                     tempSum += j + i / j
                 }
             }

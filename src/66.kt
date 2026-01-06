@@ -1,4 +1,4 @@
-class Solution {
+class Solution66 {
     fun plusOne(digits: IntArray): IntArray {
         val length : Int = digits.size;
         var i : Int = 1;

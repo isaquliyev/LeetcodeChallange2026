@@ -21,7 +21,7 @@ import java.util.Queue
          7  -8
      */
 
-class Solution {
+class Solution1161 {
     fun maxLevelSum(root: TreeNode?): Int {
         var maxSum: Int = root?.`val` ?: 0
 

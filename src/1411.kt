@@ -1,4 +1,4 @@
-class Solution {
+class Solution1411 {
     fun numOfWays(n: Int): Int {
         val MOD : Int = 1_000_000_007
 
