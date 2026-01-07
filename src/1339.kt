@@ -10,17 +10,12 @@ class Solution1339 {
 
         val wholeSum: Long = getSum(root)
         val doubleSum = wholeSum.toDouble()
-        println(list.toString())
-
 
         val sortedList = list.sortedBy {
             x -> abs(x - doubleSum / 2)
         }.reversed()
 
         val nearestToMid: Long = sortedList.last()
-
-        println(sortedList.last())
-
 
         return (((wholeSum - nearestToMid) * (nearestToMid)) % MOD).toInt()
     }
