@@ -1,49 +1,39 @@
-import com.sun.source.tree.Tree
-import java.util.LinkedList
-import java.util.Stack
 import kotlin.math.abs
 
 class Solution1339 {
 
     val MOD = 1_000_000_007
 
+    val list: MutableList<Long> = mutableListOf()
+
     fun maxProduct(root: TreeNode?): Int {
 
+        val wholeSum: Long = getSum(root)
+        val doubleSum = wholeSum.toDouble()
+        println(list.toString())
 
 
-        var maxProd: Long = 0
-        var prevTop: Long = 0
+        val sortedList = list.sortedBy {
+            x -> abs(x - doubleSum / 2)
+        }.reversed()
 
-        var node: TreeNode? = root
+        val nearestToMid: Long = sortedList.last()
 
-        while (node != null) {
-            val left = getSum(node.left)
-            val right = getSum(node.right)
+        println(sortedList.last())
 
-            var tempProd: Long= 0
 
-            if (left >= right /* node.`val` */) {
-                tempProd = left * (prevTop + right + node.`val`)
-                prevTop += right + node.`val`
-                node = node.left
-            } else {
-                tempProd = right * (prevTop + left + node.`val`)
-                //println("left: $left, root: ${root?.`val`}, prevProd: $prevTop")
-                prevTop += + left + node.`val`
-                //println("prevProd: $prevTop // after")
-                node = node.right
-            }
-
-            if (tempProd > maxProd) maxProd = tempProd
-            else break
-
-        }
-
-        return (maxProd % MOD).toInt()
+        return (((wholeSum - nearestToMid) * (nearestToMid)) % MOD).toInt()
     }
 
     fun getSum(root: TreeNode?): Long {
         if (root == null) return 0
-        return root.`val` + getSum(root.left) + getSum(root.right)
+
+        val left: Long = getSum(root.left)
+        val right: Long = getSum(root.right)
+
+        if (left != 0.toLong()) list.add(left)
+        if (right != 0.toLong()) list.add(right)
+
+        return root.`val` + left + right
     }
 }
