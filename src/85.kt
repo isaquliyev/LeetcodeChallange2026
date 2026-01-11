@@ -4,45 +4,36 @@ import kotlin.math.max
 class Solution85 {
 
     fun maximalRectangle(matrix: Array<CharArray>): Int {
-
         val n = matrix.size
         val m = matrix[0].size
-        var maxArea: Int = 0
 
-        val intMatrix: Array<IntArray> = Array(n) { IntArray(m) }
+        var maxArea = 0
+        val heights = IntArray(m)
+        val stack = Stack<Int>()
 
         for (i in 0 until n) {
             for (j in 0 until m)
-                intMatrix[i][j] =
-                    if (i == 0) matrix[i][j].digitToInt()
-                        else if (matrix[i][j] == '0') 0
-                            else intMatrix[i - 1][j] + 1
-        }
+                heights[j] = if (matrix[i][j] == '1') heights[j] + 1 else 0
 
-        val stack: Stack<Int> = Stack()
-
-        for (row in intMatrix) {
             stack.push(-1)
+
             for (j in 0 until m) {
-                while (stack.peek() != -1 && row[stack.peek()] >= row[j]) {
-                    val h: Int = row[stack.pop()]
-                    val w: Int = j - stack.peek() - 1
+                while (stack.peek() != -1 && heights[stack.peek()] >= heights[j]) {
+                    val h = heights[stack.pop()]
+                    val w = j - stack.peek() - 1
                     maxArea = max(maxArea, h * w)
                 }
                 stack.push(j)
-
             }
 
             while (stack.peek() != -1) {
-                val h = row[stack.pop()]
+                val h = heights[stack.pop()]
                 val w = m - stack.peek() - 1
                 maxArea = max(maxArea, h * w)
             }
 
-
             stack.clear()
         }
-
 
         return maxArea
     }
