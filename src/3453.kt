@@ -4,10 +4,7 @@ class Solution3453 {
         var minPoint = squares.minOf { it[1].toDouble() }
         var maxPoint = squares.maxOf { it[1].toDouble() + it[2].toDouble() }
 
-        var isMidValid: Boolean = false
-
         var mid: Double = (maxPoint + minPoint) / 2
-        var validMid: Double = 0.0
 
         repeat(120) {
             var topArea: Double = 0.0
@@ -19,7 +16,6 @@ class Solution3453 {
                 val sB: Double = square[1].toDouble()
                 val sT: Double = square[1].toDouble() + l
 
-
                 when {
                     mid in sB .. sT -> {
                         bottomArea += (mid - sB) * l
@@ -30,8 +26,6 @@ class Solution3453 {
                 }
             }
 
-
-
             when {
                 topArea > bottomArea -> minPoint = (mid + minPoint) / 2
                 else -> maxPoint = (maxPoint + mid) / 2
@@ -41,5 +35,4 @@ class Solution3453 {
 
         return mid
     }
-
 }
