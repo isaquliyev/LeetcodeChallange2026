@@ -2,7 +2,7 @@ import java.util.PriorityQueue
 import kotlin.math.cos
 import kotlin.math.min
 
-class Solution {
+class Solution2976 {
 
     data class Node(val id: Char, val dist: Long) : Comparable<Node> {
         override fun compareTo(other: Node): Int =
