@@ -1,6 +1,6 @@
 package february
 
-class Solution {
+class Solution3637 {
     fun isTrionic(nums: IntArray): Boolean {
 
         var flag = 0

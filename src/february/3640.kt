@@ -1,6 +1,6 @@
 package february
 
-class Solution {
+class Solution3640 {
     fun maxSumTrionic(nums: IntArray): Long {
         val n = nums.size
         var ans = Long.MIN_VALUE
