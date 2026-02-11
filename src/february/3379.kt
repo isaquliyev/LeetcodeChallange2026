@@ -1,6 +1,6 @@
 package february
 
-class Solution {
+class Solution3379 {
     fun constructTransformedArray(nums: IntArray): IntArray {
 
         val n = nums.size
