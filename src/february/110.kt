@@ -2,7 +2,7 @@ package february
 
 import TreeNode
 
-class Solution {
+class Solution110 {
     fun isBalanced(root: TreeNode?): Boolean {
 
         if (root == null) return true

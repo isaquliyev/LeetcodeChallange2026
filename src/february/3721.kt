@@ -96,7 +96,7 @@ class SegmentTree(data: IntArray) {
     }
 }
 
-class Solution {
+class Solution3721 {
     fun longestBalanced(nums: IntArray): Int {
         val n = nums.size
         if (n == 0) return 0
