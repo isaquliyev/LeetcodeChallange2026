@@ -1,6 +1,6 @@
 package march
 
-class Solution {
+class Solution3546 {
     fun canPartitionGrid(grid: Array<IntArray>): Boolean {
         val r = grid.size
         val c = grid[0].size
