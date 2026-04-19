@@ -1,6 +1,6 @@
 package april
 
-class Solution {
+class Solution1559 {
     fun containsCycle(grid: Array<CharArray>): Boolean {
         val m = grid.size
         val n = grid[0].size
